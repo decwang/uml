@@ -1,0 +1,24 @@
+@startuml
+
+start
+:需求评审;
+:任务分解;
+:人员确定;
+if (新项目) then (yes)
+	:创建需求代码仓库;
+endif
+:创建需求feature分支;
+repeat
+	:研发JIRA领取任务;
+	:研发代码提交;
+	:研发JIRA标记任务完成;
+	:代码检视;
+	:合并主分支修改;
+	:打包测试;
+repeat while(测试发现问题?)
+:发布;
+:合并代码回主分支;
+:主分支标签;
+stop
+
+@enduml
